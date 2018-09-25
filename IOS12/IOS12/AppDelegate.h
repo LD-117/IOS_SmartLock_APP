@@ -1,0 +1,17 @@
+//
+//  AppDelegate.h
+//  IOS12
+//
+//  Created by CHARLES on 2018/9/25.
+//  Copyright © 2018年 EagelB. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
+
+
+@end
+
