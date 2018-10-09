@@ -1,18 +1,18 @@
 //
-//  IOS12UITests.m
-//  IOS12UITests
+//  smartlockUITests.m
+//  smartlockUITests
 //
-//  Created by CHARLES on 2018/9/25.
+//  Created by CHARLES on 2018/10/9.
 //  Copyright © 2018年 EagelB. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface IOS12UITests : XCTestCase
+@interface smartlockUITests : XCTestCase
 
 @end
 
-@implementation IOS12UITests
+@implementation smartlockUITests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
