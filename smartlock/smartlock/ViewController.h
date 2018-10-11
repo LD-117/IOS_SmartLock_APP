@@ -10,8 +10,5 @@
 
 @interface ViewController : UIViewController
 
-- (void)viewDidLoad;
-- (void)changeColor;
-
 @end
 
