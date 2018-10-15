@@ -15,6 +15,7 @@
 		42C2D1AF216BD55100A38395 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C2D1AE216BD55100A38395 /* main.m */; };
 		42C2D1B9216BD55200A38395 /* smartlockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C2D1B8216BD55200A38395 /* smartlockTests.m */; };
 		42C2D1C4216BD55200A38395 /* smartlockUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C2D1C3216BD55200A38395 /* smartlockUITests.m */; };
+		42EA3A7B2174E3F4002F5B2D /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EA3A7A2174E3F4002F5B2D /* RegViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		42C2D1BF216BD55200A38395 /* smartlockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = smartlockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C2D1C3216BD55200A38395 /* smartlockUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smartlockUITests.m; sourceTree = "<group>"; };
 		42C2D1C5216BD55200A38395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42EA3A792174E3F4002F5B2D /* RegViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
+		42EA3A7A2174E3F4002F5B2D /* RegViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				42C2D1A0216BD54F00A38395 /* AppDelegate.m */,
 				42C2D1A2216BD54F00A38395 /* ViewController.h */,
 				42C2D1A3216BD54F00A38395 /* ViewController.m */,
+				42EA3A792174E3F4002F5B2D /* RegViewController.h */,
+				42EA3A7A2174E3F4002F5B2D /* RegViewController.m */,
 				42C2D1A5216BD54F00A38395 /* Main.storyboard */,
 				42C2D1A8216BD55100A38395 /* Assets.xcassets */,
 				42C2D1AA216BD55100A38395 /* LaunchScreen.storyboard */,
@@ -265,6 +270,7 @@
 				42C2D1A4216BD54F00A38395 /* ViewController.m in Sources */,
 				42C2D1AF216BD55100A38395 /* main.m in Sources */,
 				42C2D1A1216BD54F00A38395 /* AppDelegate.m in Sources */,
+				42EA3A7B2174E3F4002F5B2D /* RegViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

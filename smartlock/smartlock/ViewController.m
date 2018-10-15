@@ -7,96 +7,83 @@
 //
 
 #import "ViewController.h"
+#import "RegViewController.h"
 
-@interface ViewController ()<UITextFieldDelegate>
 
+@interface ViewController (){
+    UITextField *_loginText;
+    UITextField *_passwdText;
+}
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _loginText              = [[UITextField alloc]initWithFrame:CGRectMake(20, 80, SCREEN_SIZE.width-40, 30)];
+    _loginText.borderStyle  = UITextBorderStyleRoundedRect;
+    _loginText.placeholder  = @"username";
+    _loginText.leftViewMode = UITextFieldViewModeUnlessEditing;
     
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(50, 100, 280, 100)];
-    label.text = @"Hello World, it is a good idea. So, what do you want to know";
-    //label.numberOfLines = 0;
-    label.lineBreakMode = NSLineBreakByTruncatingMiddle;
-    label.backgroundColor = [UIColor blueColor];
-    label.font = [UIFont systemFontOfSize:23];
-    label.textColor = [UIColor yellowColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.shadowColor = [UIColor blackColor];
-    label.shadowOffset = CGSizeMake(10, 10);
-    [self.view addSubview:label];
+    _passwdText              = [[UITextField alloc]initWithFrame:CGRectMake(20, 130, SCREEN_SIZE.width-40, 30)];
+    _passwdText.borderStyle  = UITextBorderStyleRoundedRect;
+    _passwdText.placeholder  = @"password";
+    _passwdText.leftViewMode = UITextFieldViewModeUnlessEditing;
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    //[button setBackgroundImage:[UIImage imageNamed:@"image"] forState:UIControlStateNormal];
-    button.frame = CGRectMake(60, 300, 240, 50);
-    button.backgroundColor = [UIColor redColor];
-    button.layer.shadowColor = [UIColor grayColor].CGColor;
-    button.layer.shadowOffset = CGSizeMake(30, 30);
-    button.layer.shadowOpacity = 1;
-    button.layer.masksToBounds = NO;
-    button.layer.cornerRadius = 30;
-    //button.layer.borderColor = [UIColor greenColor].CGColor;
-    //button.layer.borderWidth = 5;
-    //[button setTitleEdgeInsets:UIEdgeInsetsMake(100, 0, 0, 0)];
-    [button setTitle:@"点我一下" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(changeColor) forControlEvents:UIControlEventTouchDragExit];
-    [self.view addSubview:button];
+    [self.view addSubview:_loginText];
+    [self.view addSubview:_passwdText];
     
-    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(60, 10, 280, 30)];
-    UIImageView * imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"image2"]];
-    textField.borderStyle = UITextBorderStyleRoundedRect;
-    textField.placeholder = @"请输入文字";
-    textField.textColor = [UIColor redColor];
-    textField.font = [UIFont systemFontOfSize:14];
-    textField.textAlignment = NSTextAlignmentLeft;
-    textField.leftView = imageView;
-    textField.leftViewMode = UITextFieldViewModeAlways;
-    textField.delegate = self;
-    [self.view addSubview:textField];
+    UIButton *loginbtn           = [UIButton buttonWithType:UIButtonTypeSystem];
+    loginbtn.frame               = CGRectMake(SCREEN_SIZE.width/4-50, 180, 100, 30);
+    [loginbtn setTitle:@"Login" forState:UIControlStateNormal];
+    loginbtn.layer.masksToBounds = YES;
+    loginbtn.layer.cornerRadius  = 10;
+    loginbtn.backgroundColor     = [UIColor cyanColor];
+    [loginbtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     
-    UISwitch *swi = [[UISwitch alloc]initWithFrame:CGRectMake(70, 400, 100, 40)];
-    swi.onTintColor = [UIColor greenColor];
-    swi.tintColor = [UIColor whiteColor];
-    swi.thumbTintColor = [UIColor grayColor];
-    [swi addTarget:self action:@selector(switchChangeColor:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:swi];
+    UIButton *regbtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    regbtn.frame = CGRectMake(SCREEN_SIZE.width/4*3-50, 180, 100, 30);
+    [regbtn setTitle:@"Register" forState:UIControlStateNormal];
+    regbtn.layer.masksToBounds = YES;
+    regbtn.layer.cornerRadius = 10;
+    regbtn.backgroundColor = [UIColor cyanColor];
+    [regbtn addTarget:self action:@selector(regis) forControlEvents:UIControlEventTouchUpInside];
     
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicator.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
-    indicator.color = [UIColor blackColor];
-    [self.view addSubview:indicator];
-    [indicator startAnimating];
+    [self.view addSubview:loginbtn];
+    [self.view addSubview:regbtn];
 }
 
-- (void)changeColor{
-    self.view.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1];
+- (void)regis{
+    RegViewController *con = [[RegViewController alloc]init];
+    [self presentViewController:con animated:YES completion:nil];
 }
 
--(void)switchChangeColor:(UISwitch *)swi{
-    if(swi.isOn)
-        self.view.backgroundColor = [UIColor redColor];
-    else
-        self.view.backgroundColor = [UIColor whiteColor];
-}
-
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    //NSLog(@"%c",[string characterAtIndex:0]);
-    if(string.length>0){
-        if([string characterAtIndex:0]<'0' || [string characterAtIndex:0]>'9'){
-            NSLog(@"请输入数字");
-            return NO;
-        }
-        if(textField.text.length + string.length>11){
-            NSLog(@"请输入不超过11位的数字");
-            return NO;
-        }
+-(void)login{
+    if(_loginText.text.length == 0){
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Please enter the username" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action){}];
+        [alertCon addAction:action];
+        [self presentViewController:alertCon animated:YES completion:nil];
+        return;
     }
-    return YES;
+    if(_passwdText.text.length == 0){
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Please enter the password" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActioregnStyleDefault handler:^(UIAlertAction * _Nonnull action){}];
+        [alertCon addAction:action];
+        [self presentViewController:alertCon animated:YES completion:nil];
+        return;
+    }
+    
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"Hint" message:@"Login Success" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+    [alertCon addAction:action];
+    [self presentViewController:alertCon animated:YES completion:nil];
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+
 
 
 @end
