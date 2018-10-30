@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42470B3F21884C63004BA439 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42470B3E21884C63004BA439 /* LoginViewController.m */; };
 		42C2D1A1216BD54F00A38395 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C2D1A0216BD54F00A38395 /* AppDelegate.m */; };
 		42C2D1A4216BD54F00A38395 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C2D1A3216BD54F00A38395 /* ViewController.m */; };
 		42C2D1A7216BD54F00A38395 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42C2D1A5216BD54F00A38395 /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42470B3D21884C63004BA439 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		42470B3E21884C63004BA439 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		42C2D19C216BD54F00A38395 /* smartlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C2D19F216BD54F00A38395 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		42C2D1A0216BD54F00A38395 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42470B4021885AC3004BA439 /* Waste */ = {
+			isa = PBXGroup;
+			children = (
+				42EA3A792174E3F4002F5B2D /* RegViewController.h */,
+				42EA3A7A2174E3F4002F5B2D /* RegViewController.m */,
+			);
+			path = Waste;
+			sourceTree = "<group>";
+		};
 		42C2D193216BD54F00A38395 = {
 			isa = PBXGroup;
 			children = (
@@ -108,13 +120,14 @@
 				42C2D1A0216BD54F00A38395 /* AppDelegate.m */,
 				42C2D1A2216BD54F00A38395 /* ViewController.h */,
 				42C2D1A3216BD54F00A38395 /* ViewController.m */,
-				42EA3A792174E3F4002F5B2D /* RegViewController.h */,
-				42EA3A7A2174E3F4002F5B2D /* RegViewController.m */,
+				42470B4021885AC3004BA439 /* Waste */,
 				42C2D1A5216BD54F00A38395 /* Main.storyboard */,
 				42C2D1A8216BD55100A38395 /* Assets.xcassets */,
 				42C2D1AA216BD55100A38395 /* LaunchScreen.storyboard */,
 				42C2D1AD216BD55100A38395 /* Info.plist */,
 				42C2D1AE216BD55100A38395 /* main.m */,
+				42470B3D21884C63004BA439 /* LoginViewController.h */,
+				42470B3E21884C63004BA439 /* LoginViewController.m */,
 			);
 			path = smartlock;
 			sourceTree = "<group>";
@@ -271,6 +284,7 @@
 				42C2D1AF216BD55100A38395 /* main.m in Sources */,
 				42C2D1A1216BD54F00A38395 /* AppDelegate.m in Sources */,
 				42EA3A7B2174E3F4002F5B2D /* RegViewController.m in Sources */,
+				42470B3F21884C63004BA439 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

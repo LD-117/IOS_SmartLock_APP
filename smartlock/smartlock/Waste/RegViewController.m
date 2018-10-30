@@ -17,22 +17,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, 100, SCREEN_SIZE.width-40, 60)];
-    label.font = [UIFont systemFontOfSize:23];
-    label.text = @"Register Interface";
+    
+    UILabel *label      = [[UILabel alloc]initWithFrame:CGRectMake(20, 100, SCREEN_SIZE.width-40, 60)];
+    label.font          = [UIFont systemFontOfSize:23];
+    label.text          = @"Register Interface";
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     
     UIButton *returnbtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    returnbtn.frame = CGRectMake(SCREEN_SIZE.width/2-50, 220, 100, 30);
+    returnbtn.frame     = CGRectMake(SCREEN_SIZE.width/2-50, 220, 100, 30);
     [returnbtn setTitle:@"Return" forState:UIControlStateNormal];
     [returnbtn addTarget:self action:@selector(retu) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:returnbtn];
+    
+//    UIButton *return_root_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+//    return_root_btn.frame     = CGRectMake(SCREEN_SIZE.width/2-50, 330, 100, 30);
+//    [return_root_btn setTitle:@"Return Root" forState:UIControlStateNormal];
+//    [return_root_btn addTarget:self action:@selector(retu_root) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:return_root_btn];
 }
 
 - (void)retu{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+//-(void)retu_root{
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 /*
 #pragma mark - Navigation
