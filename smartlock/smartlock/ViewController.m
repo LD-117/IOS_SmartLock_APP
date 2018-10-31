@@ -29,7 +29,8 @@
 
 -(void)push{
     LoginViewController *con = [[LoginViewController alloc]init];
-    [self.navigationController pushViewController:con animated:YES];
+    //[self.navigationController pushViewController:con animated:YES];
+    [self presentViewController:con animated:YES completion:nil];
 }
 
 

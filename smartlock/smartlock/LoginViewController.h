@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LoginViewController : UIViewController
-#define SCREEN_SIZE [UIScreen mainScreen].bounds.size
+//#define SCREEN_SIZE [UIScreen mainScreen].bounds.size
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-//#import "RegViewController.h"
+#import "RegViewController.h"
 
 @interface LoginViewController (){
     UITextField *_loginText;
@@ -44,16 +44,16 @@
     
     [self.view addSubview:loginbtn];
     
-//    UIButton *regbtn = [UIButton buttonWithType:UIButtonTypeSystem];
-//    regbtn.frame = CGRectMake(SCREEN_SIZE.width/4*3-50, 180, 100, 30);
-//    [regbtn setTitle:@"Register" forState:UIControlStateNormal];
-//    regbtn.layer.masksToBounds = YES;
-//    regbtn.layer.cornerRadius  = 10;
-//    regbtn.backgroundColor     = [UIColor cyanColor];
-//    [regbtn addTarget:self action:@selector(regis) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *regbtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    regbtn.frame = CGRectMake(SCREEN_SIZE.width/4*3-50, 180, 100, 30);
+    [regbtn setTitle:@"Register" forState:UIControlStateNormal];
+    regbtn.layer.masksToBounds = YES;
+    regbtn.layer.cornerRadius  = 10;
+    regbtn.backgroundColor     = [UIColor cyanColor];
+    [regbtn addTarget:self action:@selector(regis) forControlEvents:UIControlEventTouchUpInside];
     
 
-//    [self.view addSubview:regbtn];
+    [self.view addSubview:regbtn];
     // Do any additional setup after loading the view.
     
 //    UIButton *return_root_btn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -70,13 +70,14 @@
 //}
 
 
-//- (void)regis{
-//    RegViewController *con = [[RegViewController alloc]init];
-//    [self presentViewController:con animated:YES completion:nil];
-//}
+- (void)regis{
+    RegViewController *con = [[RegViewController alloc]init];
+    [self presentViewController:con animated:NO completion:nil];
+}
 
 #pragma mark -login function, checking password and username
 -(void)login{
+    [self.view endEditing:YES];
     if(_loginText.text.length == 0){
         UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Please enter the username" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action       = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action){}];
@@ -93,7 +94,10 @@
     }
     
     UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"Hint" message:@"Login Success" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action       = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {[self.navigationController popViewControllerAnimated:YES];}]; //*********
+    UIAlertAction *action       = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];}]; //*********
+    
     [alertCon addAction:action];
     [self presentViewController:alertCon animated:YES completion:nil];
 }
