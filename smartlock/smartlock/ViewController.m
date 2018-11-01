@@ -7,9 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "RegViewController.h"
 #import "LoginViewController.h"
-
-
+#import "LeftMenuViewController.h"
+#import "MainViewController.h"
 
 @interface ViewController ()
 @end
@@ -18,20 +19,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.title = [NSString stringWithFormat:@"view controller"];
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn.frame = CGRectMake(20, 100, 280, 30);
-    [btn setTitle:@"push" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(push) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    
+    LeftMenuViewController *menuview = [[LeftMenuViewController alloc]init];
+    [self addChildViewController:menuview];
+    [self.view addSubview:menuview.view];
+    
+    MainViewController *mainview = [[MainViewController alloc]init];
+    UINavigationController *navimainview = [[UINavigationController alloc]initWithRootViewController:mainview];
+    [self addChildViewController:navimainview];
+    [self.view addSubview:navimainview.view];
+    
+
+    
 }
 
--(void)push{
-    LoginViewController *con = [[LoginViewController alloc]init];
-    //[self.navigationController pushViewController:con animated:YES];
-    [self presentViewController:con animated:YES completion:nil];
-}
+
+
+
+
 
 
 

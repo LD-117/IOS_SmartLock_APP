@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4241626B218B27530062ABBA /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4241626A218B27530062ABBA /* LeftMenuViewController.m */; };
+		4241626E218B2AAB0062ABBA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4241626D218B2AAB0062ABBA /* MainViewController.m */; };
 		42470B3F21884C63004BA439 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42470B3E21884C63004BA439 /* LoginViewController.m */; };
 		42C2D1A1216BD54F00A38395 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C2D1A0216BD54F00A38395 /* AppDelegate.m */; };
 		42C2D1A4216BD54F00A38395 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C2D1A3216BD54F00A38395 /* ViewController.m */; };
@@ -37,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42416269218B27530062ABBA /* LeftMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
+		4241626A218B27530062ABBA /* LeftMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
+		4241626C218B2AAB0062ABBA /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		4241626D218B2AAB0062ABBA /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		42470B3D21884C63004BA439 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		42470B3E21884C63004BA439 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		42C2D19C216BD54F00A38395 /* smartlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smartlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,12 +128,16 @@
 				42EA3A7A2174E3F4002F5B2D /* RegViewController.m */,
 				42470B3E21884C63004BA439 /* LoginViewController.m */,
 				42470B3D21884C63004BA439 /* LoginViewController.h */,
+				42416269218B27530062ABBA /* LeftMenuViewController.h */,
+				4241626A218B27530062ABBA /* LeftMenuViewController.m */,
 				42470B4021885AC3004BA439 /* Waste */,
 				42C2D1A5216BD54F00A38395 /* Main.storyboard */,
 				42C2D1A8216BD55100A38395 /* Assets.xcassets */,
 				42C2D1AA216BD55100A38395 /* LaunchScreen.storyboard */,
 				42C2D1AD216BD55100A38395 /* Info.plist */,
 				42C2D1AE216BD55100A38395 /* main.m */,
+				4241626C218B2AAB0062ABBA /* MainViewController.h */,
+				4241626D218B2AAB0062ABBA /* MainViewController.m */,
 			);
 			path = smartlock;
 			sourceTree = "<group>";
@@ -284,6 +294,8 @@
 				42C2D1AF216BD55100A38395 /* main.m in Sources */,
 				42C2D1A1216BD54F00A38395 /* AppDelegate.m in Sources */,
 				42EA3A7B2174E3F4002F5B2D /* RegViewController.m in Sources */,
+				4241626E218B2AAB0062ABBA /* MainViewController.m in Sources */,
+				4241626B218B27530062ABBA /* LeftMenuViewController.m in Sources */,
 				42470B3F21884C63004BA439 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

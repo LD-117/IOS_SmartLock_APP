@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RegViewController : UIViewController
 #define SCREEN_SIZE [UIScreen mainScreen].bounds.size
+#define SCREEN_WIDETH 414.0
+#define SCREEN_HEIGHT 736.0
+#define STATUSBAR_HEIGHT 20.0
 @end
 
 NS_ASSUME_NONNULL_END

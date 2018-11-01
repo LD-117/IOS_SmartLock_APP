@@ -21,21 +21,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    _loginText              = [[UITextField alloc]initWithFrame:CGRectMake(20, 80, SCREEN_SIZE.width-40, 30)];
+    
+    UILabel *_login_label = [[UILabel alloc]initWithFrame:CGRectMake(0,STATUSBAR_HEIGHT, SCREEN_WIDETH/2.0, SCREEN_HEIGHT/10.0)];
+    _login_label.text = @"登 陆";
+    _login_label.backgroundColor = [UIColor orangeColor];
+    _login_label.font = [UIFont systemFontOfSize:16];
+    _login_label.textColor = [UIColor blackColor];
+    _login_label.textAlignment = NSTextAlignmentCenter;
+    _login_label.layer.shadowColor = [UIColor blackColor].CGColor;
+    _login_label.layer.shadowOffset = CGSizeMake(20, 10);
+    _login_label.layer.shadowOpacity = 0.3;
+    
+    UIButton *_register_button = [UIButton buttonWithType:UIButtonTypeSystem];
+    _register_button.frame = CGRectMake(SCREEN_WIDETH/2.0, STATUSBAR_HEIGHT, SCREEN_WIDETH/2.0, SCREEN_HEIGHT/10.0);
+    [_register_button setTitle:@"注 册" forState:UIControlStateNormal];
+    [_register_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _register_button.titleLabel.font = [UIFont systemFontOfSize:16];
+    _register_button.backgroundColor     = [UIColor blackColor];
+    _register_button.alpha = 0.7;
+    [_register_button addTarget:self action:@selector(regis) forControlEvents:UIControlEventTouchUpInside];
+    
+    _loginText              = [[UITextField alloc]initWithFrame:CGRectMake(20, STATUSBAR_HEIGHT+SCREEN_HEIGHT/10.0+80, SCREEN_SIZE.width-40, 30)];
     _loginText.borderStyle  = UITextBorderStyleRoundedRect;
     _loginText.placeholder  = @"username";
     _loginText.leftViewMode = UITextFieldViewModeUnlessEditing;
+    _loginText.alpha = 0;
     
-    _passwdText              = [[UITextField alloc]initWithFrame:CGRectMake(20, 130, SCREEN_SIZE.width-40, 30)];
+    _passwdText              = [[UITextField alloc]initWithFrame:CGRectMake(20, STATUSBAR_HEIGHT+SCREEN_HEIGHT/10.0+130, SCREEN_SIZE.width-40, 30)];
     _passwdText.borderStyle  = UITextBorderStyleRoundedRect;
     _passwdText.placeholder  = @"password";
     _passwdText.leftViewMode = UITextFieldViewModeUnlessEditing;
+    _passwdText.alpha = 0;
     
+    [self.view addSubview:_login_label];
+    [self.view addSubview:_register_button];
     [self.view addSubview:_loginText];
     [self.view addSubview:_passwdText];
     
     UIButton *loginbtn           = [UIButton buttonWithType:UIButtonTypeSystem];
-    loginbtn.frame               = CGRectMake(SCREEN_SIZE.width/4-50, 180, 100, 30);
+    loginbtn.frame               = CGRectMake(SCREEN_SIZE.width/4-50, STATUSBAR_HEIGHT+SCREEN_HEIGHT/10.0+180, 100, 30);
     [loginbtn setTitle:@"Login" forState:UIControlStateNormal];
     loginbtn.layer.masksToBounds = YES;
     loginbtn.layer.cornerRadius  = 10;
@@ -44,16 +68,6 @@
     
     [self.view addSubview:loginbtn];
     
-    UIButton *regbtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    regbtn.frame = CGRectMake(SCREEN_SIZE.width/4*3-50, 180, 100, 30);
-    [regbtn setTitle:@"Register" forState:UIControlStateNormal];
-    regbtn.layer.masksToBounds = YES;
-    regbtn.layer.cornerRadius  = 10;
-    regbtn.backgroundColor     = [UIColor cyanColor];
-    [regbtn addTarget:self action:@selector(regis) forControlEvents:UIControlEventTouchUpInside];
-    
-
-    [self.view addSubview:regbtn];
     // Do any additional setup after loading the view.
     
 //    UIButton *return_root_btn = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -61,6 +75,7 @@
 //    [return_root_btn setTitle:@"Return Root" forState:UIControlStateNormal];
 //    [return_root_btn addTarget:self action:@selector(retu_root) forControlEvents:UIControlEventTouchUpInside];
 //    [self.view addSubview:return_root_btn];
+    
 }
 
 
@@ -69,11 +84,12 @@
 //    [self.navigationController popViewControllerAnimated:YES];
 //}
 
-
+#pragma mark -
 - (void)regis{
     RegViewController *con = [[RegViewController alloc]init];
     [self presentViewController:con animated:NO completion:nil];
 }
+
 
 #pragma mark -login function, checking password and username
 -(void)login{
@@ -109,13 +125,26 @@
 
 #pragma mark -
 - (void)viewWillAppear:(BOOL)animated {
+    [UIView animateWithDuration:0.5 animations:^{
+        self->_loginText.alpha += 1.0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self->_passwdText.alpha += 1.0;
+        } completion:nil];
+    }];
+    
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
+    NSLog(@"viewWillAppear");
     [super viewWillAppear:animated];
 }
 
 #pragma mark -
 - (void)viewWillDisappear:(BOOL)animated {
+    self->_loginText.alpha = 0;
+    self->_passwdText.alpha = 0;
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    NSLog(@"viewWillDisappear");
     [super viewWillDisappear:animated];
 }
 
@@ -128,5 +157,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+-(void)viewDidDisappear:(BOOL)animated{
+    NSLog(@"viewDidDisappear");
+    [super viewDidDisappear:animated];
+}
 
 @end
